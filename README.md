@@ -2,18 +2,18 @@
 
 # Run `init.py`
 
-# project_name
+# octo_airport
 
-project_description
+🐙 CLI to view the status of GitHub actions for all your repos
 
-![build](https://github.com/github_username/project_name/workflows/build/badge.svg)
-![test](https://github.com/github_username/project_name/workflows/test/badge.svg)
-![lint](https://github.com/github_username/project_name/workflows/lint/badge.svg)
-![release](https://github.com/github_username/project_name/workflows/release/badge.svg)
+![build](https://github.com/Matt-Gleich/octo_airport/workflows/build/badge.svg)
+![test](https://github.com/Matt-Gleich/octo_airport/workflows/test/badge.svg)
+![lint](https://github.com/Matt-Gleich/octo_airport/workflows/lint/badge.svg)
+![release](https://github.com/Matt-Gleich/octo_airport/workflows/release/badge.svg)
 
 ## 🙌 Contributing
 
-Before contributing please read the [CONTRIBUTING.md file](https://github.com/Matt-Gleich/project_name/blob/master/CONTRIBUTING.md)
+Before contributing please read the [CONTRIBUTING.md file](https://github.com/Matt-Gleich/octo_airport/blob/master/CONTRIBUTING.md)
 
 <!-- DO NOT REMOVE - contributor_list:start -->
 ## 👥 Contributors

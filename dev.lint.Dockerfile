@@ -1,8 +1,8 @@
 FROM golangci/golangci-lint:v1.30.0
 
 # Meta data
-LABEL maintainer="project_author_email"
-LABEL description="project_description"
+LABEL maintainer="matthewgleich@gmail.com"
+LABEL description="🐙 CLI to view the status of GitHub actions for all your repos"
 
 # Copying over files
 COPY . /usr/src/app

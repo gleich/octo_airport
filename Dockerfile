@@ -1,8 +1,8 @@
 FROM golang:1.15-alpine3.12
 
 # Meta data:
-LABEL maintainer="project_author_email"
-LABEL description="project_description"
+LABEL maintainer="matthewgleich@gmail.com"
+LABEL description="🐙 CLI to view the status of GitHub actions for all your repos"
 
 # Copying over all the files:
 COPY . /usr/src/app
