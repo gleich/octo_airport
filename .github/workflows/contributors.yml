@@ -1,0 +1,17 @@
+# SOURCED FROM: https://github.com/Matt-Gleich/Matt-Gleich/blob/master/standard_documents/workflows/contributors.yml
+name: contributors
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  contributor_list:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - uses: cjdenio/contributor_list@master
+        with:
+          commit_message: 📝 Update contributors list
+          max_contributors: 10
