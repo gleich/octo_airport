@@ -1,7 +1,5 @@
 <!-- DO NOT REMOVE - contributor_list:data:start:["Matt-Gleich"]:end -->
 
-# Run `init.py`
-
 # octo_airport
 
 🐙 CLI to view the status of GitHub actions for all your repos
@@ -16,8 +14,8 @@
 Before contributing please read the [CONTRIBUTING.md file](https://github.com/Matt-Gleich/octo_airport/blob/master/CONTRIBUTING.md)
 
 <!-- DO NOT REMOVE - contributor_list:start -->
-## 👥 Contributors
 
+## 👥 Contributors
 
 - **[@Matt-Gleich](https://github.com/Matt-Gleich)**
 
