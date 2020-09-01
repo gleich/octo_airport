@@ -26,15 +26,16 @@ func Get() ConfigOutline {
 	return getFile()
 }
 
-var validFilePaths = []string{"/Users/matthewgleich/.config/octo_airport/config.yml", "/Users/matthewgleich/.octo_airport.yml"}
+var validFilePaths = []string{"~/.config/octo_airport/config.yml", "~/.octo_airport.yml"}
 
 // Get the config from the config file
 func getFile() ConfigOutline {
 	// Getting file path for config
 	var configPath string
 	for i, path := range validFilePaths {
-		if utils.DoesExist(path) {
-			configPath = path
+		fixedPath := utils.ReplaceRoot(path)
+		if utils.DoesExist(fixedPath) {
+			configPath = fixedPath
 			break
 		}
 		if i == len(validFilePaths) {

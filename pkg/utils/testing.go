@@ -6,8 +6,8 @@ import (
 )
 
 // Create a temporary environment for testing
-func CreateTempFile(t *testing.T, fName string) {
-	f, err := os.Create(fName)
+func CreateTempFile(t *testing.T, fPath string) {
+	f, err := os.Create(fPath)
 	CheckTestingErr(t, err)
 	err = f.Close()
 	CheckTestingErr(t, err)
