@@ -2,7 +2,7 @@ FROM golang:1.15
 
 # Meta data:
 LABEL maintainer="matthewgleich@gmail.com"
-LABEL description="🐙 CLI to view the status of GitHub actions for all your repos"
+LABEL description="🐙 CLI dashboard for your GitHub repos"
 
 # Copying over all the files:
 COPY . /usr/src/app
