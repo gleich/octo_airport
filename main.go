@@ -1,9 +1,12 @@
 package main
 
 import (
-	"github.com/Matt-Gleich/logoru"
+	"fmt"
+
+	"github.com/Matt-Gleich/octo_airport/pkg/config"
 )
 
 func main() {
-	logoru.Success("Program booted up!")
+	configuration := config.Get()
+	fmt.Println(configuration)
 }
