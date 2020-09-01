@@ -13,10 +13,6 @@ type ConfigOutline struct {
 	PAT string
 }
 
-type yamlConfigOutline struct {
-	PAT string `yaml:"token"`
-}
-
 // Get the configuration
 func Get() ConfigOutline {
 	envToken := os.Getenv("OCTO_AIRPORT_TOKEN")
@@ -48,7 +44,9 @@ func getFile() ConfigOutline {
 		statuser.Error("Failed to read from config file", err, 1)
 	}
 	// Parsing the yaml
-	var yamlFile yamlConfigOutline
+	var yamlFile struct {
+		PAT string `yaml:"token"`
+	}
 	err = yaml.Unmarshal(bytes, &yamlFile)
 	if err != nil {
 		statuser.Error("Failed to parse the yaml from the config file", err, 1)
