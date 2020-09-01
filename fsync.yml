@@ -3,7 +3,7 @@ replace:
   - before: project_name
     after: octo_airport
   - before: project_description
-    after: 🐙 CLI to view the status of GitHub actions for all your repos
+    after: 🐙 CLI dashboard for your GitHub repos
   - before: github_username
     after: Matt-Gleich
   - before: project_author_email

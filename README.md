@@ -2,7 +2,7 @@
 
 # octo_airport
 
-🐙 CLI to view the status of GitHub actions for all your repos
+🐙 CLI dashboard for your GitHub repos
 
 ![build](https://github.com/Matt-Gleich/octo_airport/workflows/build/badge.svg)
 ![test](https://github.com/Matt-Gleich/octo_airport/workflows/test/badge.svg)
