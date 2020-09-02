@@ -3,7 +3,6 @@ module github.com/Matt-Gleich/octo_airport
 go 1.15
 
 require (
-	github.com/Matt-Gleich/statuser v1.0.1
 	github.com/Matt-Gleich/statuser/v2 v2.0.1
 	github.com/golang/protobuf v1.3.2 // indirect
 	github.com/mattn/go-colorable v0.1.7 // indirect

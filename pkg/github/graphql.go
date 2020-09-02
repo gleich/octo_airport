@@ -3,7 +3,7 @@ package github
 import (
 	"context"
 
-	"github.com/Matt-Gleich/statuser"
+	"github.com/Matt-Gleich/statuser/v2"
 	"github.com/nathan-fiscaletti/consolesize-go"
 	"github.com/shurcooL/githubv4"
 )
