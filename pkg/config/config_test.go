@@ -11,7 +11,7 @@ import (
 
 const fakeToken = "18947302981074238973412"
 
-func TestGetFile(t *testing.T) {
+func TestGet(t *testing.T) {
 	err := os.MkdirAll(utils.ReplaceRoot("~/.config/octo_airport/"), 0700)
 	utils.CheckTestingErr(t, err)
 	for _, filePath := range validFilePaths {
@@ -19,8 +19,8 @@ func TestGetFile(t *testing.T) {
 		utils.CreateTempFile(t, fixedPath)
 		err := ioutil.WriteFile(fixedPath, []byte("token: \""+fakeToken+"\"\n"), 0644)
 		utils.CheckTestingErr(t, err)
-		instance := getFile()
-		assert.Equal(t, ConfigOutline{PAT: fakeToken}, instance)
+		instance := Get()
+		assert.Equal(t, Outline{PAT: fakeToken}, instance)
 		utils.RemoveTempFile(t, fixedPath)
 	}
 }
