@@ -17,54 +17,54 @@ import (
 
 const query = `
 {
-  user(login: "$username") {z
+user(login: "$username") {
     repositories(
-      first: $termHeight
-      orderBy: { field: UPDATED_AT, direction: DESC }
-      ownerAffiliations: OWNER
+    first: $termHeight
+    orderBy: { field: UPDATED_AT, direction: DESC }
+    ownerAffiliations: OWNER
     ) {
-      edges {
+    edges {
         node {
-          name
-          updatedAt
-          owner {
+        name
+        updatedAt
+        owner {
             url
-          }
-          description
-          issues(states: OPEN) {
+        }
+        description
+        issues(states: OPEN) {
             totalCount
-          }
-          primaryLanguage {
+        }
+        primaryLanguage {
             name
             color
-          }
-          forkCount
-          isFork
-          pullRequests(states: OPEN) {
+        }
+        forkCount
+        isFork
+        pullRequests(states: OPEN) {
             totalCount
-          }
-          licenseInfo {
+        }
+        licenseInfo {
             name
-          }
-          stargazers {
+        }
+        stargazers {
             totalCount
-          }
-          defaultBranchRef {
+        }
+        defaultBranchRef {
             target {
-              ... on Commit {
+            ... on Commit {
                 checkSuites(first: 10) {
-                  nodes {
+                nodes {
                     conclusion
                     status
-                  }
                 }
-              }
+                }
             }
-          }
+            }
         }
-      }
+        }
     }
-  }
+    }
+}
 }`
 
 // Get the data for the table
@@ -80,14 +80,13 @@ func GetData(configuration config.Outline) DataOutline {
 	_, termHeight := consolesize.GetConsoleSize()
 	filledQuery = strings.ReplaceAll(filledQuery, "$termHeight", fmt.Sprintf("%v", termHeight))
 	jsonData := map[string]string{"query": filledQuery}
-	fmt.Println(jsonData)
 
 	// Creating the request
 	jsonValue, _ := json.Marshal(jsonData)
 	request, err := http.NewRequest("POST", "https://api.github.com/graphql", bytes.NewBuffer(jsonValue))
 	request.Header.Set("Accept", "application/vnd.github.antiope-preview+json") // Required to use the Checks api currently in preview
 	if err != nil {
-		statuser.Error("Failed to formulate request to make to GitHub", err, 1)
+		statuser.Error("Failed to formulate request to GitHub", err, 1)
 	}
 
 	// Making the request with the client
