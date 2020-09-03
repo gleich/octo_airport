@@ -17,54 +17,62 @@ import (
 
 const query = `
 {
-user(login: "$username") {
-    repositories(
-    first: $termHeight
-    orderBy: { field: UPDATED_AT, direction: DESC }
-    ownerAffiliations: OWNER
-    ) {
-    edges {
-        node {
-        name
-        updatedAt
-        owner {
-            url
-        }
-        description
-        issues(states: OPEN) {
-            totalCount
-        }
-        primaryLanguage {
-            name
-            color
-        }
-        forkCount
-        isFork
-        pullRequests(states: OPEN) {
-            totalCount
-        }
-        licenseInfo {
-            name
-        }
-        stargazers {
-            totalCount
-        }
-        defaultBranchRef {
-            target {
-            ... on Commit {
-                checkSuites(first: 10) {
-                nodes {
-                    conclusion
-                    status
-                }
-                }
-            }
-            }
-        }
-        }
-    }
-    }
-}
+	user(login: "$username") {
+	repositories(
+		first: $termHeight
+		orderBy: { field: PUSHED_AT, direction: DESC }
+		ownerAffiliations: [COLLABORATOR, OWNER]
+	) {
+		edges {
+		node {
+			nameWithOwner
+			pushedAt
+			description
+			issues(states: OPEN) {
+			totalCount
+			}
+			primaryLanguage {
+			name
+			color
+			}
+			forkCount
+			pullRequests(states: OPEN) {
+			totalCount
+			}
+			licenseInfo {
+			name
+			}
+			stargazers {
+			totalCount
+			}
+			isPrivate
+			createdAt
+			deployments(
+			orderBy: { field: CREATED_AT, direction: ASC }
+			first: 1
+			) {
+			edges {
+				node {
+				state
+				}
+			}
+			}
+			defaultBranchRef {
+			target {
+				... on Commit {
+				checkSuites(first: 10) {
+					nodes {
+					conclusion
+					status
+					}
+				}
+				}
+			}
+			}
+		}
+		}
+	}
+	}
 }`
 
 // Get the data for the table
@@ -78,6 +86,9 @@ func GetData(configuration config.Outline) DataOutline {
 	// Filling in the variables in the graphql query and generating the json data
 	filledQuery := strings.ReplaceAll(query, "$username", configuration.Username)
 	_, termHeight := consolesize.GetConsoleSize()
+	if termHeight > 100 {
+		termHeight = 100
+	}
 	filledQuery = strings.ReplaceAll(filledQuery, "$termHeight", fmt.Sprintf("%v", termHeight))
 	jsonData := map[string]string{"query": filledQuery}
 

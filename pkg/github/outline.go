@@ -8,21 +8,17 @@ type DataOutline struct {
 			Repositories struct {
 				Edges []struct {
 					Node struct {
-						Name      string    `json:"name"`
-						UpdatedAt time.Time `json:"updatedAt"`
-						Owner     struct {
-							URL string `json:"url"`
-						} `json:"owner"`
-						Description string `json:"description"`
-						Issues      struct {
+						NameWithOwner string    `json:"nameWithOwner"`
+						PushedAt      time.Time `json:"pushedAt"`
+						Description   string    `json:"description"`
+						Issues        struct {
 							TotalCount int `json:"totalCount"`
 						} `json:"issues"`
 						PrimaryLanguage struct {
 							Name  string `json:"name"`
 							Color string `json:"color"`
 						} `json:"primaryLanguage"`
-						ForkCount    int  `json:"forkCount"`
-						IsFork       bool `json:"isFork"`
+						ForkCount    int `json:"forkCount"`
 						PullRequests struct {
 							TotalCount int `json:"totalCount"`
 						} `json:"pullRequests"`
@@ -32,6 +28,15 @@ type DataOutline struct {
 						Stargazers struct {
 							TotalCount int `json:"totalCount"`
 						} `json:"stargazers"`
+						IsPrivate   bool      `json:"isPrivate"`
+						CreatedAt   time.Time `json:"createdAt"`
+						Deployments struct {
+							Edges []struct {
+								Node struct {
+									State string `json:"state"`
+								} `json:"node"`
+							} `json:"edges"`
+						} `json:"deployments"`
 						DefaultBranchRef struct {
 							Target struct {
 								CheckSuites struct {
