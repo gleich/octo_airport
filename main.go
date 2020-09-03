@@ -9,7 +9,6 @@ import (
 
 func main() {
 	configuration := config.Get()
-	v4client := github.Authenticatev4(configuration)
-	data := github.GetGraphQLData(v4client, configuration.Username)
+	data := github.GetData(configuration)
 	fmt.Println(data)
 }
