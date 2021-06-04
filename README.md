@@ -1,4 +1,4 @@
-<!-- DO NOT REMOVE - contributor_list:data:start:["Matt-Gleich"]:end -->
+<!-- DO NOT REMOVE - contributor_list:data:start:["gleich"]:end -->
 
 # octo_airport
 
@@ -14,9 +14,9 @@
 Before contributing please read the [CONTRIBUTING.md file](https://github.com/Matt-Gleich/octo_airport/blob/master/CONTRIBUTING.md)
 
 <!-- DO NOT REMOVE - contributor_list:start -->
-
 ## 👥 Contributors
 
-- **[@Matt-Gleich](https://github.com/Matt-Gleich)**
+
+- **[@gleich](https://github.com/gleich)**
 
 <!-- DO NOT REMOVE - contributor_list:end -->
